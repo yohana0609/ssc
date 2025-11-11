@@ -1,154 +1,408 @@
 @import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+/* ==== RESETEO BÁSICO ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  margin: 0;
-  font-family: "Krona One", sans-serif;
+  font-family: "Inria Sans", sans-serif;
+  background-color: var(--body-bg, #ffffff);
+  color: var(--text-color, #111111);
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* === MODO OSCURO === */
-body.modo-oscuro {
-  background-color: #0d0d0d;
-  color: #ffffff;
+h1,
+h2,
+h3 {
+  font-family: "Krona One", sans-serif;
 }
 
-body.modo-oscuro .header {
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #333;
-}
-
-body.modo-oscuro input {
-  background-color: #1a1a1a;
-  color: #fff;
-  border: 1px solid #444;
-}
-
-body.modo-oscuro .btn-adjuntar {
-  background-color: #333;
-  color: #fff;
-}
-
-body.modo-oscuro .btn-adjuntar:hover {
-  background-color: #555;
-}
-
-/* === MODO CLARO === */
-body.modo-claro {
-  background-color: #f9f9f9;
-  color: #111;
-}
-
-body.modo-claro .header {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-}
-
-body.modo-claro input {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #ccc;
-}
-
-body.modo-claro .btn-adjuntar {
-  background-color: #0078ff;
-  color: #fff;
-}
-
-body.modo-claro .btn-adjuntar:hover {
-  background-color: #005fcc;
-}
-
-/* === ENCABEZADO === */
+/* ==== HEADER ==== */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
+  border-bottom: 1px solid #cce0ff;
+  background-color: var(--header-bg, #ffffff);
+  color: var(--text-color, #111);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .header_menu_link {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.2rem;
 }
 
-.header_menu_link a {
+.nav-link {
   color: inherit;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+  transition: opacity 0.2s, color 0.3s;
 }
 
-.header_menu_link a:hover {
-  opacity: 0.7;
+.nav-link:hover {
+  color: #0078ff;
 }
 
-.menu-icon,
-.inicio-icon,
-.user-icon {
-  width: 24px;
-  height: 24px;
+.bmenu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-icon {
+  color: #0078ff;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: rotate(15deg);
 }
 
 .btn-cuenta {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: none;
-  border: 1px solid #555;
+  border: 1px solid #0078ff;
   border-radius: 8px;
   padding: 0.4rem 0.8rem;
-  color: inherit;
+  background: none;
+  color: #0078ff;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-cuenta:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #0078ff;
+  color: #fff;
 }
 
 .modo-toggle {
   margin-left: 1rem;
-  padding: 0.4rem 0.8rem;
+  background: none;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
+  color: #0078ff;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* === GENERADOR === */
-.generador {
+.modo-toggle:hover {
+  transform: rotate(15deg);
+  color: #005fcc;
+}
+
+/* ==== MAIN / GENERADOR ==== */
+.main,
+.generador-main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 2rem;
   text-align: center;
-  margin-top: 4rem;
+}
+
+.presentacion_contenido_principal {
+  font-family: "Krona One", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #005fcc;
+}
+
+.presentacion_contenido_secundario {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #004499;
+}
+
+/* ==== INPUT + BOTONES (Generador mejorado) ==== */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 550px;
 }
 
 .input-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  position: relative;
+  flex: 1;
 }
 
-.input-container input {
-  padding: 0.8rem;
-  width: 260px;
-  border-radius: 8px;
-  border: 1px solid #aaa;
-}
-
-.btn-adjuntar {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+.input-generador {
+  width: 100%;
+  padding: 0.9rem 2.5rem 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #0078ff;
   font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
   transition: all 0.3s ease;
 }
 
-.adjuntar-icon {
-  width: 18px;
-  height: 18px;
+.input-generador:focus {
+  border-color: #005fcc;
+  box-shadow: 0 0 6px rgba(0, 120, 255, 0.3);
+}
+
+/* Ícono de adjuntar dentro del input */
+.btn-icono-adjuntar {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0078ff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-icono-adjuntar:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Botón enviar */
+.btn-enviar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Inria Sans", sans-serif;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #005fcc;
+  transform: scale(1.03);
+}
+
+/* Resultado */
+.resultado {
+  margin-top: 1.5rem;
+  background-color: rgba(0, 120, 255, 0.1);
+  border: 1px solid rgba(0, 120, 255, 0.2);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Inria Sans", sans-serif;
+  animation: fadeIn 0.4s ease;
+}
+
+.icono-idea {
+  color: #0078ff;
+}
+
+/* ==== FORMULARIOS (LOGIN / REGISTER) ==== */
+.formulario-container {
+  background: var(--form-bg, #fff);
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 120, 255, 0.1);
+  max-width: 360px;
+  width: 90%;
+  margin: 3rem auto;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+body.modo-oscuro .formulario-container {
+  background: #0d1a33;
+  color: #f1f1f1;
+  box-shadow: 0 0 12px rgba(0, 120, 255, 0.2);
+}
+
+.form-title {
+  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  color: #005fcc;
+}
+
+.form-subtitle {
+  color: #0078ff;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #0078ff;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-group:focus-within {
+  border-color: #005fcc;
+}
+
+.input-icon {
+  color: #0078ff;
+  margin-right: 0.5rem;
+}
+
+.input-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.btn-entrar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #0078ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-entrar:hover {
+  background-color: #005fcc;
+  transform: translateY(-2px);
+}
+
+.switch-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #004499;
+}
+
+.btn-switch {
+  background: none;
+  border: none;
+  color: #0078ff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-switch:hover {
+  color: #005fcc;
+}
+
+/* ==== MODO OSCURO GLOBAL ==== */
+body.modo-oscuro {
+  background-color: #0b0b1a;
+  color: #f1f1f1;
+}
+
+body.modo-oscuro .header {
+  background-color: #0d1a33;
+  border-bottom: 1px solid #0078ff;
+  color: #f1f1f1;
+}
+
+body.modo-oscuro .presentacion_contenido_principal {
+  color: #66aaff;
+}
+
+body.modo-oscuro .presentacion_contenido_secundario {
+  color: #99c2ff;
+}
+
+body.modo-oscuro .input-generador {
+  background-color: #142850;
+  border-color: #3399ff;
+  color: #f1f1f1;
+}
+
+body.modo-oscuro .btn-enviar {
+  background-color: #2196f3;
+}
+
+body.modo-oscuro .resultado {
+  background-color: rgba(33, 150, 243, 0.15);
+  border-color: rgba(33, 150, 243, 0.3);
+  color: #cce7ff;
+}
+
+/* ==== ANIMACIÓN ==== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== LAYOUT GENERAL ==== */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El main ocupa todo el espacio disponible antes del footer */
+.contenido-principal {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==== FOOTER ==== */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.2rem 0;
+  background-color: var(--footer-bg, #f0f6ff);
+  color: var(--footer-text, #004499);
+  font-size: 0.9rem;
+  font-family: "Inria Sans", sans-serif;
+  border-top: 1px solid #cce0ff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.footer-brand {
+  font-family: "Krona One", sans-serif;
+  color: #0078ff;
+  font-weight: bold;
+}
+
+body.modo-oscuro .footer {
+  background-color: #0d1a33;
+  color: #f1f1f1;
+  border-top: 1px solid rgba(0, 120, 255, 0.3);
 }

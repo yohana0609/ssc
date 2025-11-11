@@ -1,7 +1,11 @@
+import React from "react";
+
 function Footer() {
   return (
-    <footer>
-      <p>© 2025 AIdea - Generador de ideas</p>
+    <footer className="footer">
+      <p>
+        © 2025 <span className="footer-brand">AIdea</span> — Generador de ideas
+      </p>
     </footer>
   );
 }
